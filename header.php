@@ -3,7 +3,6 @@
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width" />
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -13,20 +12,18 @@
         
     </a>
     <nav>
-        <ul class="menu">
-            <li class="nav-item-link nav-item"><img src="http://localhost/planty/wordpress/wp-content/uploads/2023/09/Logo.png" alt="Logo planty" id="logo"></li>
-            <li class="nav-item-link nav-item"><a href="http://localhost/planty/wordpress/nous-rencontrer/">nous rencontrer</a></li>
-            <li class="nav-item-link nav-item"><a href="' . get_admin_url() . '"  class= "nav-link">Admin</a></li>
-            <li class="nav-item-link nav-item"><a href="planty_wp/commander/"><button class="button-commander">Commander</button></a></li>
-        </ul>
-        
-    </nav>
+
+    <div class="logo">
+			
+			<a href="http://localhost/planty/wordpress/"> <img src="http://localhost/planty/wordpress/wp-content/uploads/2023/09/logoplanty.png" alt="" id="logo"> </a>
+		  </div>
+<ul class="menu-21">
+  <li><a href="http://localhost/planty/wordpress/?page_id=537">Nous rencontrer</a></li>
+  <?php if ( is_user_logged_in() ) { ?>
+  <li><a href="<?php echo esc_url( admin_url() ); ?>">Admin</a></li>
+  <?php } ?>
+  <li class="button-commander"><a class="Nav-commander" href="http://localhost/planty/wordpress/?page_id=135">Commander</a></li>
+</ul>
+</nav>
 
     <?php 
-
-wp_nav_menu([
-'theme_location' => 'header',
-'container' => 'false',
-//ajout de class "ul" 
-'menu_class' => 'menu-nav'
-]);
